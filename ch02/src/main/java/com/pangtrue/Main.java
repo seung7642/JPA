@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 /**
  * User: SeungHo Lee (seung7642@gmail.com)
@@ -37,5 +38,25 @@ public class Main {
     private static void logic(EntityManager em) {
         String id = "pangtrue";
         Member member = new Member();
+        member.setId(id);
+        member.setUserName("pangtrue");
+        member.setAge(10);
+
+        // 1. Persistence Context에 엔티티를 등록한다.
+        em.persist(member);
+
+        // 2. update
+        member.setAge(20);
+
+        // 3. select one
+        Member findMember = em.find(Member.class, id);
+        System.out.println("findMember : " + findMember);
+
+        // 4. select list
+        List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
+        System.out.println("members.size : " + members.size());
+
+        // 5. delete
+        em.remove(member);
     }
 }

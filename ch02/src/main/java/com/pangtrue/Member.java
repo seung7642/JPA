@@ -1,6 +1,7 @@
 package com.pangtrue;
 
-import org.h2.store.Data;
+
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,4 +22,8 @@ public class Member {
 
     private Integer age;
 
+    @Override
+    public String toString() {
+        return "{" + this.id + ", " + this.userName + ", " + this.age + "}";
+    }
 }
