@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Gradle template
+.gradle
+/build/
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
