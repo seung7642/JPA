@@ -15,18 +15,24 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // 1. 엔티티 매니저팩토리 생성.
+        // 1. 'pangtrue'명을 가진 persistence-unit을 참조해 EntityManagerFactory 생성.
+        //    EntityManagerFactory를 생성하는 비용은 아주 크다.
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pangtrue");
 
         // 2. 엔티티 매니저 생성.
         EntityManager em = emf.createEntityManager();
 
-        // 3. 트랜잭션 기능을 담당하는 객체 생성.
+        // 3. EntityManager로부터 트랜잭션 기능을 담당하는 객체 생성.
         EntityTransaction tx = em.getTransaction();
 
         try {
+            // 1. 트랜잭션을 시작한다.
             tx.begin();
+
+            // 2. 비즈니스 로직을 실행한다.
             logic(em);
+
+            // 3. 트랜잭션을 커밋한다.
             tx.commit();
         } catch (Exception e) {
             tx.rollback();

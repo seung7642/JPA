@@ -1,17 +1,15 @@
 package com.pangtrue.jpa;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Data
 @Entity
 @Table(name = "MEMBER")
-@Setter
-@Getter
 public class Member {
 
     @Id
@@ -23,8 +21,27 @@ public class Member {
 
     private Integer age;
 
-    @Override
-    public String toString() {
-        return "{" + this.id + ", " + this.userName + ", " + this.age + "}";
-    }
+//    public String getId() {
+//        return id;
+//    }
+//
+//    public void setId(String id) {
+//        this.id = id;
+//    }
+//
+//    public String getUserName() {
+//        return userName;
+//    }
+//
+//    public void setUserName(String username) {
+//        this.userName = userName;
+//    }
+//
+//    public Integer getAge() {
+//        return age;
+//    }
+//
+//    public void setAge(Integer age) {
+//        this.age = age;
+//    }
 }
