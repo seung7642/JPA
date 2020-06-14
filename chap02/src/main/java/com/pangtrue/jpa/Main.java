@@ -42,17 +42,17 @@ public class Main {
     }
 
     private static void logic(EntityManager em) {
-        String id = "pangtrue";
+        Long id = 4L;
         Member member = new Member();
         member.setId(id);
-        member.setUserName("pangtrue");
-        member.setAge(10);
+        member.setUserName("Seungho Lee");
+        member.setAge(25);
 
         // 1. Persistence Context에 엔티티를 등록한다.
         em.persist(member);
 
         // 2. update
-        member.setAge(20);
+        member.setAge(30);
 
         // 3. select one
         Member findMember = em.find(Member.class, id);
