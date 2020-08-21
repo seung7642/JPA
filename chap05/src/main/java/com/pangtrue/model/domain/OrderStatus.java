@@ -1,4 +1,4 @@
-package com.pangtrue.model.entity;
+package com.pangtrue.model.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.pangtrue.model.entity;
+package com.pangtrue.model.domain;
 
 import lombok.Data;
 
@@ -10,15 +10,15 @@ public class OrderItem {
 
     @Id
     @GeneratedValue
-    @Column(name = "ORDER_ITEM_ID")
+    @Column(name = "order_item_id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "ITEM_ID")
+    @JoinColumn(name = "item_id")
     private Item item;      //주문 상품
 
     @ManyToOne
-    @JoinColumn(name = "ORDER_ID")
+    @JoinColumn(name = "order_id")
     private Order order;    //주문
 
     private int orderPrice; //주문 가격
