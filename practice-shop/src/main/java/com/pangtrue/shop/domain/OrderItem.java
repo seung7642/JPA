@@ -4,7 +4,6 @@ import com.pangtrue.shop.domain.item.Item;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 
 import javax.persistence.*;
 
@@ -21,7 +20,7 @@ public class OrderItem {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
-    private AbstractReadWriteAccess.Item item;      //주문 상품
+    private Item item;      //주문 상품
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
