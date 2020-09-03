@@ -1,5 +1,6 @@
-package com.pangtrue.model.domain;
+package com.pangtrue.model.domain.item;
 
+import com.pangtrue.model.domain.Category;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,13 +9,13 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
+@Getter @Setter
 @Entity
-public class Item {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "DTYPE")
+public abstract class Item {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     @Column(name = "item_id")
     private Long id;
 

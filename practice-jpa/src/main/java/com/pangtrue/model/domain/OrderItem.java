@@ -1,5 +1,6 @@
 package com.pangtrue.model.domain;
 
+import com.pangtrue.model.domain.item.Item;
 import lombok.Data;
 
 import javax.persistence.*;

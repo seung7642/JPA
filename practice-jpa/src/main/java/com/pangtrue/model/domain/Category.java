@@ -1,5 +1,6 @@
 package com.pangtrue.model.domain;
 
+import com.pangtrue.model.domain.item.Item;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,13 +8,11 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
+@Getter @Setter
 @Entity
 public class Category {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     @Column(name = "category_id")
     private Long id;
 
@@ -26,7 +25,7 @@ public class Category {
     private List<Item> items = new ArrayList<>();
 
     // 다대일 관계에서는 다 쪽을 연관 관계의 주인으로 설정한다. 테이블 기준으로 다 쪽에 외래 키가 있기 때문.
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
     private Category parent;
 
