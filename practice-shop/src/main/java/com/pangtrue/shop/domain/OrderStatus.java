@@ -1,7 +1,15 @@
 package com.pangtrue.shop.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@AllArgsConstructor
 public enum OrderStatus {
+    ORDER(0),
+    CANCLE(1);
 
-    ORDER, CANCEL
-
+    @Getter
+    @Setter
+    private Integer value;
 }

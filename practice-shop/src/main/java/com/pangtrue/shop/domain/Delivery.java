@@ -6,24 +6,24 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+@Getter @Setter
 @NoArgsConstructor
-@Getter
-@Setter
 @Entity
 public class Delivery {
 
-    @Id @GeneratedValue
-    @Column(name = "DELIVERY_ID")
+    @Id
+    @GeneratedValue
+    @Column(name = "delivery_id")
     private Long id;
 
     @OneToOne(mappedBy = "delivery")
     private Order order;
 
     @Embedded
-    private Address address;
+    private Address address; // 값 타입
 
     @Enumerated(EnumType.STRING)
-    private DeliveryStatus status;
+    private DeliveryStatus status; //ENUM [READY(준비), COMP(배송)]
 
     public Delivery(Address address) {
         this.address = address;
